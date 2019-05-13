@@ -1,0 +1,59 @@
+        /*
+        //This commented code is for drawing world system using checkerboards
+         while(true)
+         {
+             if(!cap.read(frame))
+                break;
+
+            //MAIN LOOP
+            //Take picture, compute camera from picture --> project 3d points onto image...
+
+            //Finds the rodrigo rotation vector and the translation vector
+            Mat rvec, tvec;
+            vector<Point3f> world_pts;
+            vector<Point2f> img_pts;
+            find_cam_pose(frame,cam_matrix,dist_coeff,rvec,tvec, world_pts, img_pts);
+
+            //computes KRt = K * [R | t], if rvec was found.
+            if(!rvec.empty())
+            {
+                //BGR instead of RGB
+                
+                
+                //DRAWS COORDINATE SYSTEM using openCV projection
+                
+                vector<Point2f> pts_in_img1;
+                vector<Point3f> pts_in_world1;
+                Point3f p1(0.0, 0.0, 0.0);
+                double a = 4.0*square_length;
+                Point3f p2(a, 0.0, 0.0);
+                pts_in_world1.push_back(p1);
+                pts_in_world1.push_back(p2);
+                //red -> x-axis
+                projectPoints(pts_in_world1,rvec,tvec,cam_matrix,dist_coeff, pts_in_img1);
+                arrowedLine(frame, pts_in_img1[0], pts_in_img1[1], Scalar(0,0,255),2,8,0,0.1);
+
+                vector<Point2f> pts_in_img2;
+                vector<Point3f> pts_in_world2;
+                Point3f p3(0.0, a, 0.0);
+                pts_in_world2.push_back(p1);
+                pts_in_world2.push_back(p3);
+                // y -> green
+                projectPoints(pts_in_world2,rvec,tvec,cam_matrix,dist_coeff, pts_in_img2);
+                arrowedLine(frame, pts_in_img2[0], pts_in_img2[1], Scalar(0,255,0),2,8,0,0.1);
+
+                vector<Point2f> pts_in_img3;
+                vector<Point3f> pts_in_world3;
+                Point3f p4(0.0, 0.0, a);
+                pts_in_world3.push_back(p1);
+                pts_in_world3.push_back(p4);
+                // z - axis -> blue
+                projectPoints(pts_in_world3,rvec,tvec,cam_matrix,dist_coeff, pts_in_img3);
+                arrowedLine(frame, pts_in_img3[0], pts_in_img3[1], Scalar(255,0,0),2,8,0,0.1);
+                
+
+            }
+            imshow("Webcam", frame);
+            char character = waitKey(1000 / frames_per_second);
+         }
+         */
